@@ -40,3 +40,7 @@ class Expenses():
                     unnecessary_expenses.add(i)
             
             return [necessary_expenses, food_expenses, unnecessary_expenses]
+
+    def categorize_set_compression(self):
+        necessary_expenses = {x for x in self.list}
+        
