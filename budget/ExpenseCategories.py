@@ -1,3 +1,4 @@
+from unicodedata import category
 from . import Expense
 import matplotlib.pyplot as plt
 import timeit
@@ -36,6 +37,17 @@ expenses.read_expenses('data/spending_data.csv')
     number=100000,
     globals=globals()
     ))
+
+    fig, ax = plt.subplots()
+    labels = ['Necessary', 'Food', 'Unnecessary']
+
+    divided_expenses_sum = []
+    for category_exps in divided_set_comp:
+        divided_expenses_sum.append(sum(x.amount for x in category_exps))
     
+    ax.pie(divided_expenses_sum, labels=labels, autopct='%1.1f%%')
+    plt.show()
+    
+
 if __name__ == "__main__":
     main()
